@@ -1,0 +1,96 @@
+<script>
+    var end = new Date('02/28/2025 5:00 AM UTC');
+    
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+        var timer;
+    
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById('countdown').innerHTML = '<span class="expired">EXPIRED!</span>';
+                return;
+            }
+            var days = Math.floor(distance / _day);
+            var hours = Math.floor((distance % _day) / _hour);
+            var minutes = Math.floor((distance % _hour) / _minute);
+            var seconds = Math.floor((distance % _minute) / _second);
+    
+            document.getElementById('countdown').innerHTML = 
+                `<div class="countdown-container">
+                    <div class="countdown-segment">
+                        <span class="number">${days}</span>
+                        <span class="label">days</span>
+                    </div>
+                    <div class="countdown-segment">
+                        <span class="number">${hours}</span>
+                        <span class="label">hours</span>
+                    </div>
+                    <div class="countdown-segment">
+                        <span class="number">${minutes}</span>
+                        <span class="label">minutes</span>
+                    </div>
+                    <div class="countdown-segment">
+                        <span class="number">${seconds}</span>
+                        <span class="label">seconds</span>
+                    </div>
+                </div>`;
+        }
+    
+        timer = setInterval(showRemaining, 1000);
+    </script>
+    <style>
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .countdown-segment {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+        }
+        .number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+        .label {
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        .expired {
+            color: red;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .wrapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .title {
+            font-family: Arial, sans-serif;
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+        }
+    </style>
+    <div class="wrapper">
+        <h1 class="title">狩獵解禁</h1>
+        <div id="countdown"></div>
+    </div>
