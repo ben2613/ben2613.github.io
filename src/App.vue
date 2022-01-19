@@ -49,13 +49,21 @@ function handleMouseWheelDOM(e) {
 function moveDown() {
   inMove.value = true;
   activeSection.value--;
-  if (activeSection.value < 0) activeSection.value = offsets.length - 1;
+  if (activeSection.value < 0) {
+    activeSection.value++;
+    inMove.value = false;
+    return;
+  }
   scrollToSection(activeSection.value, true);
 }
 function moveUp() {
   inMove.value = true;
   activeSection.value++;
-  if (activeSection.value > offsets.length - 1) activeSection.value = 0;
+  if (activeSection.value > offsets.length - 1) {
+    activeSection.value--;
+    inMove.value = false;
+    return;
+  }
   scrollToSection(activeSection.value, true);
 }
 function touchStart(e) {
