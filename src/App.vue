@@ -3,6 +3,8 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 // https://codepen.io/WebDEasy/pen/NVOEBL but in vue 3 things
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
+import 'normalize.css'
+
 const inMove = ref(false);
 const activeSection = ref(0);
 const offsets = reactive([]);
@@ -95,12 +97,14 @@ onUnmounted(() => {
   window.removeEventListener('touchstart', touchStart); // mobile devices
   window.removeEventListener('touchmove', touchMove); // mobile devices
 })
+
+import Construction from './components/Contructing.vue'
 </script>
 
 <template>
   <div id="app">
     <section class="fullpage blue">
-      <h1>Section 1</h1>
+      <Construction />
     </section>
     <section class="fullpage black">
       <h1>Section 2</h1>
