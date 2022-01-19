@@ -23,9 +23,7 @@ function scrollToSection(id, force = false) {
   if (inMove.value && !force) return false;
   activeSection.value = id;
   inMove.value = true;
-  document.getElementsByTagName('section')[id].scrollIntoView({
-    behavior: 'smooth'
-  });
+  document.getElementsByTagName('section')[id].scrollIntoView();
   setTimeout(() => {
     inMove.value = false;
   }, 400);
@@ -128,6 +126,9 @@ import Construction from './components/Contructing.vue'
 </template>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   overflow: hidden;
