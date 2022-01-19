@@ -96,23 +96,24 @@ onUnmounted(() => {
   window.removeEventListener('touchmove', touchMove); // mobile devices
 })
 
-import Construction from './components/Contructing.vue'
+import Construction from '@/components/Contructing.vue';
+import Page from '@/components/Page.vue'
 </script>
 
 <template>
   <div id="app">
-    <section class="fullpage blue">
+    <Page class="blue">
       <Construction />
-    </section>
-    <section class="fullpage black">
+    </Page>
+    <Page class="black">
       <h1>Section 2</h1>
-    </section>
-    <section class="fullpage green">
+    </Page>
+    <Page class="green">
       <h1>Section 3</h1>
-    </section>
-    <section class="fullpage blue">
+    </Page>
+    <Page class="blue">
       <h1>Section 4</h1>
-    </section>
+    </Page>
     <div class="sections-menu">
       <span
         class="menu-point"
@@ -145,21 +146,6 @@ h1 {
   margin: 0;
   text-align: center;
   padding: 0 1rem;
-}
-.fullpage {
-  height: 100vh;
-  width: 100%;
-}
-section.black {
-  background-color: #000;
-}
-
-section.blue {
-  background-color: #237ad4;
-}
-
-section.green {
-  background-color: #68c368;
 }
 .sections-menu {
   position: fixed;

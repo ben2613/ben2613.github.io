@@ -1,0 +1,27 @@
+
+<template>
+  <section class="page">
+    <slot></slot>
+  </section>
+</template>
+<style lang="scss" scoped>
+.page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.black {
+  background-color: #000;
+}
+
+.blue {
+  background-color: #237ad4;
+}
+
+.green {
+  background-color: #68c368;
+}
+</style>
