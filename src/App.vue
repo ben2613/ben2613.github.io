@@ -3,6 +3,7 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 // https://codepen.io/WebDEasy/pen/NVOEBL but in vue 3 things
 import 'normalize.css'
+import 'uno.css'
 
 import Construction from '@/components/Contructing.vue'
 import Section from '@/components/Section.vue'
@@ -42,11 +43,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-h1 {
-  font-size: 6em;
-  margin: 0;
-  text-align: center;
-  padding: 0 1rem;
 }
 </style>
