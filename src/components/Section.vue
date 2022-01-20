@@ -18,7 +18,8 @@
 }
 
 .blue {
-  background-color: #237ad4;
+  background-color: #41729f;
+  color: #c3e0e5;
 }
 
 .green {

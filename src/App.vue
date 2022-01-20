@@ -5,24 +5,24 @@
 import 'normalize.css'
 import 'uno.css'
 
-import Construction from '@/components/Contructing.vue'
-import Section from '@/components/Section.vue'
-import FullPageScroll from './components/FullPageScroll.vue';
+import Section from './components/Section.vue'
+import FullPageScroll from './components/FullPageScroll.vue'
+import Introduction from "./components/sections/Introduction.vue"
 </script>
 
 <template>
   <div id="app">
     <FullPageScroll>
-      <Section class="blue">
-        <Construction />
+      <Section id="introduction" class="blue">
+        <Introduction />
       </Section>
-      <Section class="black">
+      <Section id="what-can-i-do" class="black">
         <h1>Section 2</h1>
       </Section>
-      <Section class="green">
+      <Section id="contact" class="green">
         <h1>Section 3</h1>
       </Section>
-      <Section class="blue">
+      <Section id="hobbies" class="blue">
         <h1>Section 4</h1>
       </Section>
     </FullPageScroll>
