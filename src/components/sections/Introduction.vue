@@ -8,7 +8,7 @@
         a Developer
       </div>
     </div>
-    <div absolute right-1 bottom-0 flex content-end class="h-40vh max-h-40vh">
+    <div absolute right-1 bottom-0 flex content-end overflow-hidden class="h-40vh max-h-40vh">
       <img animate-spin animate="count-infinite 2s" class="greeting-boy h-full" src="@/assets/byebye_boy.png" alt="Greeting Boy">
     </div>
   </div>
