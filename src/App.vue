@@ -16,7 +16,7 @@ import Introduction from "./components/sections/Introduction.vue"
       <Section id="introduction" class="blue">
         <Introduction />
       </Section>
-      <Section id="what-can-i-do" class="black">
+      <Section multi-page id="what-can-i-do" class="black h-200vh">
         <h1>Section 2</h1>
       </Section>
       <Section id="contact" class="green">

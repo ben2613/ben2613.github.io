@@ -5,6 +5,7 @@ import { ref, reactive, onMounted, onUnmounted } from 'vue'
 const inMove = ref(false);
 const activeSection = ref(0);
 const offsets = reactive([]);
+const isMultiPage = reactive([]); // this should be same length with offsets
 const touchStartY = ref(0);
 
 function calculateSectionOffsets() {
@@ -13,6 +14,7 @@ function calculateSectionOffsets() {
   for (let i = 0; i < length; i++) {
     let sectionOffset = sections[i].offsetTop;
     offsets.push(sectionOffset);
+    isMultiPage.push(sections[i].classList.contains('multi-page'))
     console.log('section ' + i)
   }
 }
@@ -27,23 +29,33 @@ function scrollToSection(id, force = false) {
 }
 function handleMouseWheel(e) {
   if (e.wheelDelta < 30 && !inMove.value) {
-    moveUp();
+    if (activeSection.value < offsets.length - 1
+      && isMultiPage[activeSection.value]
+      && Math.trunc(window.pageYOffset + window.innerHeight) < offsets[activeSection.value + 1]
+    ) {
+      moveDownABit()
+    } else {
+      moveDown()
+    }
   } else if (e.wheelDelta > 30 && !inMove.value) {
-    moveDown();
+    if (isMultiPage[activeSection.value] && !(Math.trunc(window.pageYOffset) <= offsets[activeSection.value])) {
+      moveUpABit()
+    } else {
+      moveUp()
+    }
   }
-  e.preventDefault();
-  return false;
+  e.preventDefault()
+  return false
 }
-function handleMouseWheelDOM(e) {
-  if (e.detail > 0 && !inMove.value) {
-    moveUp();
-  } else if (e.detail < 0 && !inMove.value) {
-    moveDown();
-  }
 
-  return false;
+function moveUpABit() {
+  inMove.value = true;
+  window.scrollTo(window.pageXOffset, window.pageYOffset - 1/2 * window.innerHeight)
+  setTimeout(() => {
+    inMove.value = false;
+  }, 400);
 }
-function moveDown() {
+function moveUp() {
   inMove.value = true;
   activeSection.value--;
   if (activeSection.value < 0) {
@@ -53,7 +65,14 @@ function moveDown() {
   }
   scrollToSection(activeSection.value, true);
 }
-function moveUp() {
+function moveDownABit() {
+  inMove.value = true;
+  window.scrollTo(window.pageXOffset, window.pageYOffset + 1/2 * window.innerHeight)
+  setTimeout(() => {
+    inMove.value = false;
+  }, 400);
+}
+function moveDown() {
   inMove.value = true;
   activeSection.value++;
   if (activeSection.value > offsets.length - 1) {
@@ -72,9 +91,9 @@ function touchMove(e) {
   e.preventDefault();
   const currentY = e.touches[0].clientY;
   if (touchStartY.value < currentY) {
-    moveDown();
-  } else {
     moveUp();
+  } else {
+    moveDown();
   }
   touchStartY.value = 0;
   return false;
