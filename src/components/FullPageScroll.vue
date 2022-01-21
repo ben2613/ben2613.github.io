@@ -1,4 +1,5 @@
 <script setup>
+import '@/js/addWheelListener.js'
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
 
 const inMove = ref(false);
@@ -80,10 +81,7 @@ function touchMove(e) {
 }
 onMounted(() => {
   calculateSectionOffsets();
-  window.addEventListener('DOMMouseScroll', handleMouseWheelDOM); // Mozilla Firefox
-  window.addEventListener('mousewheel', handleMouseWheel, {
-    passive: false
-  }); // Other browsers
+  window.addWheelListener(window.document, handleMouseWheel);
   window.addEventListener('touchstart', touchStart, {
     passive: false
   }); // mobile devices
