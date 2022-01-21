@@ -8,8 +8,8 @@
         a Developer
       </div>
     </div>
-    <div absolute right-1 bottom-0 flex content-end>
-      <img animate-spin animate="count-infinite 2s" class="greeting-boy h-30% max-h-30%" src="@/assets/byebye_boy.png" alt="Greeting Boy">
+    <div absolute right-1 bottom-0 flex content-end class="h-40vh max-h-40vh">
+      <img animate-spin animate="count-infinite 2s" class="greeting-boy h-full" src="@/assets/byebye_boy.png" alt="Greeting Boy">
     </div>
   </div>
 </template>
@@ -20,9 +20,9 @@
 
 <style lang="scss" scoped>
 @keyframes greeting {
-  0% {transform:rotate(-10deg);}
+  from {transform:rotate(-10deg);}
   50% {transform:rotate(0deg);}
-  100% {transform:rotate(10deg);}
+  to {transform:rotate(10deg);}
 }
 .greeting-boy {
   animation-name: greeting;
