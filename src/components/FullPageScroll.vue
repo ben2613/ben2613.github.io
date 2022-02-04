@@ -29,33 +29,28 @@ function scrollToSection(id, force = false) {
 }
 function handleMouseWheel(e) {
   if (e.wheelDelta < 30 && !inMove.value) {
-    if (activeSection.value < offsets.length - 1
-      && isMultiPage[activeSection.value]
-      && Math.trunc(window.pageYOffset + window.innerHeight) < offsets[activeSection.value + 1]
-    ) {
-      moveDownABit()
-    } else {
-      moveDown()
-    }
+    moveDown()
   } else if (e.wheelDelta > 30 && !inMove.value) {
-    if (isMultiPage[activeSection.value] && !(Math.trunc(window.pageYOffset) <= offsets[activeSection.value])) {
-      moveUpABit()
-    } else {
-      moveUp()
-    }
+    moveUp()
   }
   e.preventDefault()
   return false
 }
-
-function moveUpABit() {
+function moveUp() {
+  if (isMultiPage[activeSection.value] && !(Math.trunc(window.pageYOffset) <= offsets[activeSection.value])) {
+    _moveUpABit()
+  } else {
+    _moveUp()
+  }
+}
+function _moveUpABit() {
   inMove.value = true;
   window.scrollTo(window.pageXOffset, window.pageYOffset - 1/2 * window.innerHeight)
   setTimeout(() => {
     inMove.value = false;
   }, 400);
 }
-function moveUp() {
+function _moveUp() {
   inMove.value = true;
   activeSection.value--;
   if (activeSection.value < 0) {
@@ -65,14 +60,24 @@ function moveUp() {
   }
   scrollToSection(activeSection.value, true);
 }
-function moveDownABit() {
+function moveDown() {
+  if (activeSection.value < offsets.length - 1
+      && isMultiPage[activeSection.value]
+      && Math.trunc(window.pageYOffset + window.innerHeight) < offsets[activeSection.value + 1]
+  ) {
+      _moveDownABit()
+  } else {
+      _moveDown()
+  }
+}
+function _moveDownABit() {
   inMove.value = true;
   window.scrollTo(window.pageXOffset, window.pageYOffset + 1/2 * window.innerHeight)
   setTimeout(() => {
     inMove.value = false;
   }, 400);
 }
-function moveDown() {
+function _moveDown() {
   inMove.value = true;
   activeSection.value++;
   if (activeSection.value > offsets.length - 1) {
