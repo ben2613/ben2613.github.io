@@ -1,30 +1,30 @@
 <script setup>
-import { ref, reactive, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, onMounted, onUnmounted } from "vue"
 
-const inMove = ref(false);
-const activeSection = ref(0);
-const offsets = reactive([]);
-const isMultiPage = reactive([]); // this should be same length with offsets
-const touchStartY = ref(0);
+const inMove = ref(false)
+const activeSection = ref(0)
+const offsets = reactive([])
+const isMultiPage = reactive([]) // this should be same length with offsets
+const touchStartY = ref(0)
 
 function calculateSectionOffsets() {
-  let sections = document.getElementsByTagName('section');
-  let length = sections.length;
+  let sections = document.getElementsByTagName("section")
+  let length = sections.length
   for (let i = 0; i < length; i++) {
-    let sectionOffset = sections[i].offsetTop;
-    offsets.push(sectionOffset);
-    isMultiPage.push(sections[i].classList.contains('multi-page'))
-    console.log('section ' + i)
+    let sectionOffset = sections[i].offsetTop
+    offsets.push(sectionOffset)
+    isMultiPage.push(sections[i].classList.contains("multi-page"))
+    console.log("section " + i)
   }
 }
 function scrollToSection(id, force = false) {
-  if (inMove.value && !force) return false;
-  activeSection.value = id;
-  inMove.value = true;
-  document.getElementsByTagName('section')[id].scrollIntoView();
+  if (inMove.value && !force) return false
+  activeSection.value = id
+  inMove.value = true
+  document.getElementsByTagName("section")[id].scrollIntoView()
   setTimeout(() => {
-    inMove.value = false;
-  }, 400);
+    inMove.value = false
+  }, 400)
 }
 function handleMouseWheel(e) {
   if (e.wheelDelta < 30 && !inMove.value) {
@@ -36,91 +36,107 @@ function handleMouseWheel(e) {
   return false
 }
 function moveUp() {
-  if (isMultiPage[activeSection.value] && !(Math.trunc(window.pageYOffset) <= offsets[activeSection.value])) {
+  if (
+    isMultiPage[activeSection.value] &&
+    !(Math.trunc(window.pageYOffset) <= offsets[activeSection.value])
+  ) {
     _moveUpABit()
   } else {
     _moveUp()
   }
 }
 function _moveUpABit() {
-  inMove.value = true;
-  window.scrollTo(window.pageXOffset, Math.round(window.pageYOffset - 1/2 * document.documentElement.clientHeight))
+  inMove.value = true
+  window.scrollTo(
+    window.pageXOffset,
+    Math.round(
+      window.pageYOffset - (1 / 2) * document.documentElement.clientHeight
+    )
+  )
   setTimeout(() => {
-    inMove.value = false;
-  }, 400);
+    inMove.value = false
+  }, 400)
 }
 function _moveUp() {
-  inMove.value = true;
-  activeSection.value--;
+  inMove.value = true
+  activeSection.value--
   if (activeSection.value < 0) {
-    activeSection.value++;
-    inMove.value = false;
-    return;
+    activeSection.value++
+    inMove.value = false
+    return
   }
-  scrollToSection(activeSection.value, true);
+  scrollToSection(activeSection.value, true)
 }
 function moveDown() {
-  if (activeSection.value < offsets.length - 1
-      && isMultiPage[activeSection.value]
-      && Math.trunc(window.pageYOffset + window.innerHeight) < offsets[activeSection.value + 1]
+  if (
+    activeSection.value < offsets.length - 1 &&
+    isMultiPage[activeSection.value] &&
+    Math.trunc(window.pageYOffset + window.innerHeight) <
+    offsets[activeSection.value + 1]
   ) {
-      _moveDownABit()
+    _moveDownABit()
   } else {
-      _moveDown()
+    _moveDown()
   }
 }
 function _moveDownABit() {
-  inMove.value = true;
-  window.scrollTo(window.pageXOffset, Math.round(window.pageYOffset + 1/2 * document.documentElement.clientHeight))
+  inMove.value = true
+  window.scrollTo(
+    window.pageXOffset,
+    Math.round(
+      window.pageYOffset + (1 / 2) * document.documentElement.clientHeight
+    )
+  )
   setTimeout(() => {
-    inMove.value = false;
-  }, 400);
+    inMove.value = false
+  }, 400)
 }
 function _moveDown() {
-  inMove.value = true;
-  activeSection.value++;
+  inMove.value = true
+  activeSection.value++
   if (activeSection.value > offsets.length - 1) {
-    activeSection.value--;
-    inMove.value = false;
-    return;
+    activeSection.value--
+    inMove.value = false
+    return
   }
-  scrollToSection(activeSection.value, true);
+  scrollToSection(activeSection.value, true)
 }
 function touchStart(e) {
-  e.preventDefault();
-  touchStartY.value = e.touches[0].clientY;
+  e.preventDefault()
+  touchStartY.value = e.touches[0].clientY
 }
 function touchMove(e) {
-  if (inMove.value) return false;
-  e.preventDefault();
-  const currentY = e.touches[0].clientY;
+  if (inMove.value) return false
+  e.preventDefault()
+  const currentY = e.touches[0].clientY
   if (touchStartY.value < currentY) {
-    moveUp();
+    moveUp()
   } else {
-    moveDown();
+    moveDown()
   }
-  touchStartY.value = 0;
-  return false;
+  touchStartY.value = 0
+  return false
 }
 onMounted(() => {
-  calculateSectionOffsets();
-  window.addEventListener('wheel', handleMouseWheel);
-  window.addEventListener('touchstart', touchStart, {
-    passive: false
-  }); // mobile devices
-  window.addEventListener('touchmove', touchMove, {
-    passive: false
-  }); // mobile devices
+  calculateSectionOffsets()
+  window.addEventListener("wheel", handleMouseWheel)
+  window.addEventListener("touchstart", touchStart, {
+    passive: false,
+  }) // mobile devices
+  window.addEventListener("touchmove", touchMove, {
+    passive: false,
+  }) // mobile devices
 })
 onUnmounted(() => {
-  window.removeEventListener('wheel', handleMouseWheel);
-  window.removeEventListener('touchstart', touchStart); // mobile devices
-  window.removeEventListener('touchmove', touchMove); // mobile devices
+  window.removeEventListener("wheel", handleMouseWheel)
+  window.removeEventListener("touchstart", touchStart) // mobile devices
+  window.removeEventListener("touchmove", touchMove) // mobile devices
 })
 </script>
 <template>
   <div>
     <slot></slot>
+
     <div class="sections-menu">
       <span
         class="menu-point"

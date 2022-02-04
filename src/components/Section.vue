@@ -1,10 +1,10 @@
 <script setup>
 defineProps({
   multiPage: Boolean, // to let the script
-});
+})
 </script>
 <template>
-  <section :class="multiPage ? 'multi-page' :'h-100vh' ">
+  <section :class="multiPage ? 'multi-page' : 'h-100vh'">
     <slot></slot>
   </section>
 </template>
