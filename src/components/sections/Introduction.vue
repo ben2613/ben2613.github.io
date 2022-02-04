@@ -1,7 +1,7 @@
 <template>
   <div h-full flex text-center select-none>
     <div ma text="right 5xl">
-      <div>Hi, I am Ben Wong</div>
+      <div>Hi, I am Ka Pui / KP Wong</div>
       <div>a Developer</div>
     </div>
     <div absolute right-1 bottom-0 flex content-end overflow-hidden class="h-40vh max-h-20vh sm:max-h-40vh">

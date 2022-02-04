@@ -13,17 +13,23 @@ import Introduction from "./components/sections/Introduction.vue"
 <template>
   <div id="app">
     <FullPageScroll>
-      <Section id="introduction" class="blue">
+      <Section display="Introduction" class="blue">
         <Introduction />
       </Section>
-      <Section multi-page id="what-can-i-do" class="black h-200vh">
-        <h1>Section 2</h1>
+      <Section multi-page display="What I Can Do" class="black h-200vh">
+        <h1>What I Can Do</h1>
       </Section>
-      <Section id="contact" class="green">
-        <h1>Section 3</h1>
+      <Section display="What I Can't" class="green">
+        <h1>What I Can't Do</h1>
       </Section>
-      <Section id="hobbies" class="blue">
-        <h1>Section 4</h1>
+      <Section display="No Show Case" class="blue">
+        <h1>No Show Case</h1>
+      </Section>
+      <Section display="Contact" class="blue">
+        <h1>Contact</h1>
+      </Section>
+      <Section display="Hobbies" class="blue">
+        <h1>Hobbies</h1>
       </Section>
     </FullPageScroll>
   </div>
