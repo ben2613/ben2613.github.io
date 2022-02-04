@@ -1,5 +1,4 @@
 <script setup>
-import '@/js/addWheelListener.js'
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
 
 const inMove = ref(false);
@@ -45,7 +44,7 @@ function moveUp() {
 }
 function _moveUpABit() {
   inMove.value = true;
-  window.scrollTo(window.pageXOffset, window.pageYOffset - 1/2 * window.innerHeight)
+  window.scrollTo(window.pageXOffset, Math.round(window.pageYOffset - 1/2 * document.documentElement.clientHeight))
   setTimeout(() => {
     inMove.value = false;
   }, 400);
@@ -72,7 +71,7 @@ function moveDown() {
 }
 function _moveDownABit() {
   inMove.value = true;
-  window.scrollTo(window.pageXOffset, window.pageYOffset + 1/2 * window.innerHeight)
+  window.scrollTo(window.pageXOffset, Math.round(window.pageYOffset + 1/2 * document.documentElement.clientHeight))
   setTimeout(() => {
     inMove.value = false;
   }, 400);
@@ -105,7 +104,7 @@ function touchMove(e) {
 }
 onMounted(() => {
   calculateSectionOffsets();
-  window.addWheelListener(window.document, handleMouseWheel);
+  window.addEventListener('wheel', handleMouseWheel);
   window.addEventListener('touchstart', touchStart, {
     passive: false
   }); // mobile devices
@@ -114,10 +113,7 @@ onMounted(() => {
   }); // mobile devices
 })
 onUnmounted(() => {
-  window.removeEventListener('mousewheel', handleMouseWheel, {
-    passive: false
-  }); // Other browsers
-  window.removeEventListener('DOMMouseScroll', handleMouseWheelDOM); // Mozilla Firefox
+  window.removeEventListener('wheel', handleMouseWheel);
   window.removeEventListener('touchstart', touchStart); // mobile devices
   window.removeEventListener('touchmove', touchMove); // mobile devices
 })
