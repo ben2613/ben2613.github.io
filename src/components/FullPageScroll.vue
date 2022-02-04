@@ -1,5 +1,6 @@
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from "vue"
+import Menu from "./Menu.vue"
 
 const inMove = ref(false)
 const activeSection = ref(0)
@@ -136,16 +137,7 @@ onUnmounted(() => {
 <template>
   <div>
     <slot></slot>
-
-    <div class="sections-menu">
-      <span
-        class="menu-point"
-        :class="{ active: activeSection == index }"
-        @click="scrollToSection(index)"
-        v-for="(offset, index) in offsets"
-        :key="index"
-      ></span>
-    </div>
+    <Menu :items="$slots.default()" v-on:menu="scrollToSection"></Menu>
   </div>
 </template>
 <style lang="scss" scoped>

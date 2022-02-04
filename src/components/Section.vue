@@ -1,5 +1,6 @@
 <script setup>
 defineProps({
+  display: String, // display in the menu
   multiPage: Boolean, // to let the script
 })
 </script>
