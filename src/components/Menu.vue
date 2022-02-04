@@ -6,18 +6,30 @@ const emit = defineEmits(['menu'])
 const onclick = (i) => { emit('menu', i); console.log(`Clicked ${i}`) }
 </script>
 <template>
-  <div class="menu">
-    <ul>
-      <li v-for="(item, index) in items" :key="index">
-        <button @click="onclick(index)">{{ item.props.display }}</button>
+  <nav class="fixed top-0 right-0">
+    <ul class="flex flex-wrap list-none m-0 p-5 bg-transparent">
+      <li class="mx-3 p-1 text-center" v-for="(item, index) in items" :key="index">
+        <a
+          class="whitespace-nowrap text-lg text-white no-underline visited:text-white"
+          href="#"
+          @click.prevent="onclick(index)"
+        >{{ item.props.display }}</a>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 <style lang="scss" scoped>
-.menu {
-  position: fixed;
-  right: 1rem;
-  top: 1rem;
+a::after {
+  transition: all ease-out;
+  content: "";
+  width: 0px;
+  height: 1px;
+  display: block;
+  background: white;
+  transition: 300ms;
+  margin: auto;
+}
+a:hover::after {
+  width: 100%;
 }
 </style>
