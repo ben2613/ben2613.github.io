@@ -119,7 +119,8 @@ function touchMove(e) {
   return false
 }
 onMounted(() => {
-  setTimeout(calculateSectionOffsets, 250)
+  inMove.value = true
+  setTimeout(() => { calculateSectionOffsets(); inMove.value = false }, 250)
   window.addEventListener("resize", debounce(calculateSectionOffsets, 150))
   window.addEventListener("wheel", handleMouseWheel)
   window.addEventListener("touchstart", touchStart, {
