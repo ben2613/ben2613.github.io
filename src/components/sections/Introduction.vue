@@ -1,6 +1,6 @@
 <template>
   <div h-full flex text-center select-none>
-    <div ma text="right 5xl">
+    <div ma px-2 text="right 5xl">
       <div>
         Hi, I am
         <span whitespace-nowrap>Ka Pui</span> /
