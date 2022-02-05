@@ -18,6 +18,7 @@ section {
   flex-direction: column;
   &.black {
     background-color: #000;
+    color: #ccc;
   }
 
   &.blue {

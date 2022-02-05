@@ -8,6 +8,7 @@ import 'uno.css'
 import Section from './components/Section.vue'
 import FullPageScroll from './components/FullPageScroll.vue'
 import Introduction from "./components/sections/Introduction.vue"
+import WhatCanIDo from './components/sections/WhatCanIDo.vue'
 </script>
 
 <template>
@@ -17,13 +18,13 @@ import Introduction from "./components/sections/Introduction.vue"
         <Introduction />
       </Section>
       <Section multi-page display="What I Can Do" class="black h-200vh">
-        <h1>What I Can Do</h1>
+        <WhatCanIDo />
       </Section>
-      <Section display="What I Can't" class="green">
+      <Section display="What I Can't Do" class="green">
         <h1>What I Can't Do</h1>
       </Section>
-      <Section display="No Show Case" class="blue">
-        <h1>No Show Case</h1>
+      <Section display="(No) Showcase" class="blue">
+        <h1>(No) Showcase</h1>
       </Section>
       <Section display="Contact" class="blue">
         <h1>Contact</h1>
