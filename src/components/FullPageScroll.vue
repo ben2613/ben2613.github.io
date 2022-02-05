@@ -1,5 +1,6 @@
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from "vue"
+import debounce from 'lodash/debounce'
 import Menu from "./Menu.vue"
 
 const inMove = ref(false)
@@ -119,6 +120,7 @@ function touchMove(e) {
 }
 onMounted(() => {
   setTimeout(calculateSectionOffsets, 250)
+  window.addEventListener("resize", debounce(calculateSectionOffsets, 150))
   window.addEventListener("wheel", handleMouseWheel)
   window.addEventListener("touchstart", touchStart, {
     passive: false,
