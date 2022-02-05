@@ -16,28 +16,26 @@ import Hobbies from './components/sections/Hobbies.vue'
 </script>
 
 <template>
-  <div id="app">
-    <FullPageScroll>
-      <Section display="Introduction" class="blue">
-        <Introduction />
-      </Section>
-      <Section multi-page display="What I Can Do" class="black">
-        <WhatCanIDo />
-      </Section>
-      <Section display="What I Can't Do" class="green">
-        <WhatICantDo />
-      </Section>
-      <Section display="(No) Showcase" class="brown">
-        <NoShowcase />
-      </Section>
-      <Section display="Contact" class="red">
-        <Contact />
-      </Section>
-      <Section display="Hobbies" class="black">
-        <Hobbies />
-      </Section>
-    </FullPageScroll>
-  </div>
+  <FullPageScroll>
+    <Section ref="el" display="Introduction" class="blue">
+      <Introduction />
+    </Section>
+    <Section multi-page display="What I Can Do" class="black">
+      <WhatCanIDo />
+    </Section>
+    <Section display="What I Can't Do" class="green">
+      <WhatICantDo />
+    </Section>
+    <Section display="(No) Showcase" class="brown">
+      <NoShowcase />
+    </Section>
+    <Section display="Contact" class="red">
+      <Contact />
+    </Section>
+    <Section display="Hobbies" class="black">
+      <Hobbies />
+    </Section>
+  </FullPageScroll>
 </template>
 
 <style>
