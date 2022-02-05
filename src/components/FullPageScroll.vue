@@ -72,8 +72,7 @@ function moveDown() {
   if (
     activeSection.value < offsets.length - 1 &&
     isMultiPage[activeSection.value] &&
-    Math.trunc(window.pageYOffset + window.innerHeight) <
-    offsets[activeSection.value + 1]
+    Math.trunc(window.pageYOffset + document.documentElement.clientHeight) < offsets[activeSection.value + 1]
   ) {
     _moveDownABit()
   } else {
