@@ -9,6 +9,10 @@ const offsets = reactive([])
 const isMultiPage = reactive([]) // this should be same length with offsets
 const touchStartY = ref(0)
 
+function resetAll() {
+  offsets.splice(0, offsets.length)
+  isMultiPage.splice(0, isMultiPage.length)
+}
 function calculateSectionOffsets() {
   let sections = document.getElementsByTagName("section")
   let length = sections.length
@@ -120,8 +124,8 @@ function touchMove(e) {
 }
 onMounted(() => {
   inMove.value = true
-  setTimeout(() => { calculateSectionOffsets(); inMove.value = false }, 250)
-  window.addEventListener("resize", debounce(calculateSectionOffsets, 150))
+  setTimeout(() => { resetAll(); calculateSectionOffsets(); scrollToSection(activeSection.value, true); inMove.value = false }, 250)
+  window.addEventListener("resize", debounce(() => { resetAll(); calculateSectionOffsets(); scrollToSection(activeSection.value, true) }, 150))
   window.addEventListener("wheel", handleMouseWheel)
   window.addEventListener("touchstart", touchStart, {
     passive: false,
