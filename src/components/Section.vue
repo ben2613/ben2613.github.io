@@ -16,18 +16,25 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: #ccc;
   &.black {
-    background-color: #000;
-    color: #ccc;
+    background-color: #040303;
   }
 
   &.blue {
     background-color: #41729f;
-    color: #c3e0e5;
   }
 
   &.green {
-    background-color: #68c368;
+    background-color: #5c7457;
+  }
+
+  &.red {
+    background-color: #984447;
+  }
+
+  &.brown {
+    background-color: #846333;
   }
 }
 </style>

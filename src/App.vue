@@ -10,6 +10,9 @@ import FullPageScroll from './components/FullPageScroll.vue'
 import Introduction from "./components/sections/Introduction.vue"
 import WhatCanIDo from './components/sections/WhatCanIDo.vue'
 import WhatICantDo from './components/sections/WhatICantDo.vue'
+import NoShowcase from './components/sections/NoShowcase.vue'
+import Contact from './components/sections/Contact.vue'
+import Hobbies from './components/sections/Hobbies.vue'
 </script>
 
 <template>
@@ -24,14 +27,14 @@ import WhatICantDo from './components/sections/WhatICantDo.vue'
       <Section display="What I Can't Do" class="green">
         <WhatICantDo />
       </Section>
-      <Section display="(No) Showcase" class="blue">
-        <h1>(No) Showcase</h1>
+      <Section display="(No) Showcase" class="brown">
+        <NoShowcase />
       </Section>
-      <Section display="Contact" class="blue">
-        <h1>Contact</h1>
+      <Section display="Contact" class="red">
+        <Contact />
       </Section>
-      <Section display="Hobbies" class="blue">
-        <h1>Hobbies</h1>
+      <Section display="Hobbies" class="black">
+        <Hobbies />
       </Section>
     </FullPageScroll>
   </div>
