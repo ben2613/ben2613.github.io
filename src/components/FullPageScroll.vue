@@ -118,7 +118,7 @@ function touchMove(e) {
   return false
 }
 onMounted(() => {
-  calculateSectionOffsets()
+  setTimeout(calculateSectionOffsets, 250)
   window.addEventListener("wheel", handleMouseWheel)
   window.addEventListener("touchstart", touchStart, {
     passive: false,
