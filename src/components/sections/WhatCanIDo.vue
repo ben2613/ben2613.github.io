@@ -3,11 +3,12 @@ import data from '@/assets/json/task_can_do.json'
 
 </script>
 <template>
-  <div flex flex-wrap>
+  <div pt-30>
     <!-- List all tasks with short desc + optional img -->
-    <div v-for="(datum, i) in data" :key="i">
-      <p>{{ datum.desc }}</p>
-      <img class="h-33vh" :src="`src/assets/${datum.img}`" :alt="datum.desc" />
+    <h2>What I can do</h2>
+    <div class="flex items-center" :class="(i % 2 === 0) ? '' : 'flex-row-reverse'" v-for="(datum, i) in data" :key="i">
+      <img class="max-w-50% sm:max-w-40% lg:max-w-30% max-h-33vh" :src="`src/assets/${datum.img}`" :alt="datum.desc" />
+      <p class>{{ datum.desc }}</p>
     </div>
   </div>
 </template>

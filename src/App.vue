@@ -17,7 +17,7 @@ import WhatCanIDo from './components/sections/WhatCanIDo.vue'
       <Section display="Introduction" class="blue">
         <Introduction />
       </Section>
-      <Section multi-page display="What I Can Do" class="black h-200vh">
+      <Section multi-page display="What I Can Do" class="black">
         <WhatCanIDo />
       </Section>
       <Section display="What I Can't Do" class="green">

@@ -16,6 +16,7 @@ const onclick = (i) => { emit('menu', i); console.log(`Clicked ${i}`) }
         >{{ item.props.display }}</a>
       </li>
     </ul>
+    <!-- Toggle luxury mode -->
   </nav>
 </template>
 <style lang="scss" scoped>
