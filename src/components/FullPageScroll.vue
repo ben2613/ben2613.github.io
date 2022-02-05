@@ -144,7 +144,7 @@ onUnmounted(() => {
   <div>
     <slot></slot>
     <Menu :items="$slots.default()" v-on:menu="scrollToSection"></Menu>
-    <span fixed top-2 left-2 font-bold>Version 0.02</span>
+    <span fixed top-2 left-2 font-bold>Version 0.03</span>
   </div>
 </template>
 <style lang="scss" scoped>

@@ -10,7 +10,7 @@ const onclick = (i) => { emit('menu', i); console.log(`Clicked ${i}`) }
     <ul class="flex flex-wrap list-none m-0 p-5 bg-transparent">
       <li class="mx-3 p-1 text-center" v-for="(item, index) in items" :key="index">
         <a
-          class="whitespace-nowrap text-lg text-white no-underline visited:text-white"
+          class="inline-block whitespace-nowrap text-lg text-white no-underline visited:text-white hover:animate-pulse"
           href="#"
           @click.prevent="onclick(index)"
         >{{ item.props.display }}</a>
