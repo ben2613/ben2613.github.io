@@ -7,7 +7,7 @@
     </p>
     <p>
       You may find some of my stuff in
-      <a href="https://github.com/ben2613/">
+      <a target="_blank" href="https://github.com/ben2613/">
         <img src="@/assets/GitHub-Mark-120px-plus.png" alt="github mark" class="h-8" />
       </a>
     </p>
