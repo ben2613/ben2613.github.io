@@ -1,0 +1,34 @@
+[
+  {
+    "desc": "HTML, CSS (trying Tailwind CSS), Javascript Vue.js, a bit React",
+    "img": "website_heatmap.png"
+  },
+  {
+    "desc": "PHP (Wordpress, Laravel), Node.js, MySQL, MongoDB, NoSQL",
+    "img": "computer_screen_programming.png"
+  },
+  {
+    "desc": "Git, Docker, a bit Kubernetes",
+    "img": "kumiawase_business.png"
+  },
+  {
+    "desc": "Server Installation, ESXi, VMCenter",
+    "img": "computer_server1.png"
+  },
+  {
+    "desc": "Some knowledge of networking and routing",
+    "img": "computer_hub_loop_setsuzoku.png"
+  },
+  {
+    "desc": "Causal Communication with Users, On-site support",
+    "img": "osyaberi_man.png"
+  },
+  {
+    "desc": "Provide Proof of concept, initial design of project",
+    "img": "denkyuu_on.png"
+  },
+  {
+    "desc": "Native Cantonese, Communicable English, some Japanese (JLPT N2 Level)",
+    "img": "study_language.gif"
+  }
+]
