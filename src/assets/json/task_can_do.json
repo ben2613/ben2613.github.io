@@ -12,6 +12,10 @@
     "img": "kumiawase_business.png"
   },
   {
+    "desc": "Good understanding of the underlying system",
+    "img": "character_program_smart.png"
+  },
+  {
     "desc": "Server Installation, ESXi, VMCenter",
     "img": "computer_server1.png"
   },
@@ -30,5 +34,9 @@
   {
     "desc": "Native Cantonese, Communicable English, some Japanese (JLPT N2 Level)",
     "img": "study_language.gif"
+  },
+  {
+    "desc": "Learn new tech and concept extremely fast",
+    "img": "slump_good_man_study.png"
   }
 ]

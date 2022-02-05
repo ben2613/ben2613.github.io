@@ -9,6 +9,7 @@ import Section from './components/Section.vue'
 import FullPageScroll from './components/FullPageScroll.vue'
 import Introduction from "./components/sections/Introduction.vue"
 import WhatCanIDo from './components/sections/WhatCanIDo.vue'
+import WhatICantDo from './components/sections/WhatICantDo.vue'
 </script>
 
 <template>
@@ -21,7 +22,7 @@ import WhatCanIDo from './components/sections/WhatCanIDo.vue'
         <WhatCanIDo />
       </Section>
       <Section display="What I Can't Do" class="green">
-        <h1>What I Can't Do</h1>
+        <WhatICantDo />
       </Section>
       <Section display="(No) Showcase" class="blue">
         <h1>(No) Showcase</h1>
