@@ -122,10 +122,17 @@ function touchMove(e) {
   touchStartY.value = 0
   return false
 }
-onMounted(() => {
+const recalculateSectionOffsets = debounce((e) => {
+  resetAll()
   inMove.value = true
-  setTimeout(() => { resetAll(); calculateSectionOffsets(); scrollToSection(activeSection.value, true); inMove.value = false }, 250)
-  window.addEventListener("resize", debounce(() => { resetAll(); calculateSectionOffsets(); scrollToSection(activeSection.value, true) }, 150))
+  calculateSectionOffsets()
+  inMove.value = false
+}, 1)
+onMounted(() => {
+  recalculateSectionOffsets()
+  inMove.value = true //prevent user scroll first
+  setTimeout(recalculateSectionOffsets, 1000)
+  window.addEventListener("resize", recalculateSectionOffsets)
   window.addEventListener("wheel", handleMouseWheel)
   window.addEventListener("touchstart", touchStart, {
     passive: false,
