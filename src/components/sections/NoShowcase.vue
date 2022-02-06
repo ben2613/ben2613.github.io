@@ -3,7 +3,7 @@
     <h2>No Showcase....</h2>
     <p>
       Due to my nature of my past job,
-      projects are mainly served in internal network at hospital network.
+      projects are mainly served in internal hospital network.
     </p>
     <p>
       You may find some of my stuff in
