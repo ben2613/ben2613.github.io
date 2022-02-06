@@ -20,7 +20,6 @@ function calculateSectionOffsets() {
     let sectionOffset = sections[i].offsetTop
     offsets.push(sectionOffset)
     isMultiPage.push(sections[i].classList.contains("multi-page"))
-    console.log("section " + i)
   }
 }
 function scrollToSection(id, force = false) {
@@ -150,8 +149,11 @@ onUnmounted(() => {
 <template>
   <div>
     <slot></slot>
-    <Menu :items="$slots.default()" v-on:menu="scrollToSection"></Menu>
-    <span fixed top-2 left-2 font-bold>Version 0.03</span>
+    <Menu
+      :class="['transition-opacity', activeSection !== 0 ? 'opacity-10 hover:opacity-95' : '']"
+      :items="$slots.default()"
+      v-on:menu="scrollToSection"
+    ></Menu>
   </div>
 </template>
 <style lang="scss" scoped>
