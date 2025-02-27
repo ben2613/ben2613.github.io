@@ -1,6 +1,22 @@
-<script>
-    var end = new Date('02/28/2025 5:00 AM UTC');
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>狩獵解禁倒數計時器</title>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ben2613.github.io">
+    <meta property="og:title" content="狩獵解禁倒數計時器">
+    <meta property="og:image" content="https://ben2613.github.io/preview.png">
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="title">狩獵解禁</h1>
+        <div id="countdown"></div>
+    </div>
+    <script>
+        var end = new Date('02/28/2025 5:00 AM UTC');
+        
         var _second = 1000;
         var _minute = _second * 60;
         var _hour = _minute * 60;
@@ -90,7 +106,5 @@
             margin: 0;
         }
     </style>
-    <div class="wrapper">
-        <h1 class="title">狩獵解禁</h1>
-        <div id="countdown"></div>
-    </div>
+</body>
+</html>
